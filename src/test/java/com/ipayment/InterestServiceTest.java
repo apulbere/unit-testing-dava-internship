@@ -13,7 +13,7 @@ class InterestServiceTest {
     @Test
     @DisplayName("if you place $1,000 at 12% per annum, the interest is $120 at the end of each and every year")
     void shouldCalculateCorrectlyInterest() {
-        var account = new Account(1_000, .12, 1);
+        Account account = new Account(1_000, .12, 1);
 
         double actualResult = interestService.calculateEarnedInterest(account);
 
@@ -22,9 +22,9 @@ class InterestServiceTest {
 
     @Test
     void shouldFailForNegativePrincipal() {
-        var account = new Account(-1_000, .12, 1);
+        Account account = new Account(-1_000, .12, 1);
 
-        var thrownException = assertThrows(IllegalArgumentException.class,
+        IllegalArgumentException thrownException = assertThrows(IllegalArgumentException.class,
                 () -> interestService.calculateEarnedInterest(account));
 
         assertEquals("cannot accept negative principal into calculation", thrownException.getMessage());

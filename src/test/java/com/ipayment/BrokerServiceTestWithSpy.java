@@ -2,6 +2,7 @@ package com.ipayment;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import static com.ipayment.AccountType.PREMIUM;
@@ -15,7 +16,7 @@ public class BrokerServiceTestWithSpy {
 
     @Test
     void shouldCalculateBrokerFee() {
-        var accounts = Stream.generate(() -> new Account(PREMIUM)).limit(10).collect(toList());
+        List accounts = Stream.generate(() -> new Account(PREMIUM)).limit(10).collect(toList());
 
         double earnedInterestPerAccount = 45.0;
         doReturn(earnedInterestPerAccount).when(brokerService).calculateFee(any(Account.class));

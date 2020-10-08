@@ -2,8 +2,7 @@
 A repository to demonstrate main unit testing capabilities
 
 # Prerequisites
-* Java 14 (it works with 8 as well, but you'll have to replace `var`, `List.of` etc.)
-* Enable annotation processing in your IDE
+* Java 8
 * Visual Studio Code + Marp (only if you want to see presentation.md as a slideshow)
 
 # Use case

@@ -2,7 +2,6 @@ package com.ipayment.wrong;
 
 import com.ipayment.Account;
 import com.ipayment.AccountType;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -21,8 +20,8 @@ public class NonIsolatedTest {
 
     @Test
     void shouldFindAllPremiumAccounts() {
-        var premium = new Account(35_000, .2, 2, PREMIUM);
-        var budget = new Account(200, .3, 2, BUDGET);
+        Account premium = new Account(35_000, .2, 2, PREMIUM);
+        Account budget = new Account(200, .3, 2, BUDGET);
 
         accountRepository.save(premium);
         accountRepository.save(budget);
@@ -34,8 +33,8 @@ public class NonIsolatedTest {
 
     @Test
     void shouldFindAllWithPrincipalLessThan() {
-        var greaterThan600 = new Account(45_000, .05, 4, PREMIUM);
-        var lessThan600 = new Account(559, .12, 1, PREMIUM_PLUS);
+        Account greaterThan600 = new Account(45_000, 0.05, 4, PREMIUM);
+        Account lessThan600 = new Account(559, .12, 1, PREMIUM_PLUS);
         accountRepository.save(greaterThan600);
         accountRepository.save(lessThan600);
 

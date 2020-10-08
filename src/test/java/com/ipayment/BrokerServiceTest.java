@@ -2,7 +2,7 @@ package com.ipayment;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.Arrays;
 
 import static com.ipayment.AccountType.BUDGET;
 import static com.ipayment.AccountType.PREMIUM;
@@ -17,8 +17,8 @@ class BrokerServiceTest {
 
     @Test
     void shouldCalculateBrokerFee() {
-        var premiumAccount = new Account(PREMIUM);
-        var budgetAccount = new Account(BUDGET);
+        Account premiumAccount = new Account(PREMIUM);
+        Account budgetAccount = new Account(BUDGET);
 
         double premiumAccountInterest = 35.0;
         when(interestRateService.calculateEarnedInterest(premiumAccount))
@@ -26,7 +26,7 @@ class BrokerServiceTest {
 
         double expectedFee = brokerFee * premiumAccountInterest;
 
-        double actualFee = brokerService.calculateFee(List.of(premiumAccount, budgetAccount));
+        double actualFee = brokerService.calculateFee(Arrays.asList(premiumAccount, budgetAccount));
 
         assertEquals(expectedFee, actualFee);
 

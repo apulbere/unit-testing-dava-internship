@@ -10,7 +10,7 @@ public class NonRepeatableTest {
 
     @Test
     void shouldReturnPMAfterNoon() {
-        var partOfDay = new PartOfDay();
+        PartOfDay partOfDay = new PartOfDay();
         assertEquals("PM", partOfDay.find());
     }
 

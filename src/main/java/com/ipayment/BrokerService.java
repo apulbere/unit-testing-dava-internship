@@ -1,19 +1,22 @@
 package com.ipayment;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 import static com.ipayment.AccountType.PREMIUM;
 import static com.ipayment.AccountType.PREMIUM_PLUS;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class BrokerService {
 
     private double brokerFeePercentage;
     private InterestService interestService;
+
+    public BrokerService(double brokerFeePercentage, InterestService interestService) {
+        this.brokerFeePercentage = brokerFeePercentage;
+        this.interestService = interestService;
+    }
+
+    public BrokerService() {
+    }
 
     public double calculateFee(List<Account> accounts) {
         return accounts.stream()
